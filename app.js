@@ -7,7 +7,7 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-const montero = './music/montero.mp3'
+const montero = './music/montero.mp3  '
 
 client.on('message', msg => {
   if (msg.content === 'cheese you later') {
@@ -35,11 +35,9 @@ client.on('message', msg => {
 async function playRepeat(connection, url, numPlays) {
   connection.play(url)
     .on('speaking', (speaking) => {
-      console.log(speaking)
       if(!speaking && numPlays !== 0) {
-        console.log(speaking)
         playRepeat(connection, url, numPlays - 1)
-        console.log('repeat')
+        console.log('repeating')
       }
     });
 }
