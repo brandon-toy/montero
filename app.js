@@ -5,7 +5,7 @@ const ytdl = require('ytdl-core-discord');
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-  client.user.setPresence({ activity: { name: 'Montero' }, status: 'idle' })
+  client.user.setPresence({ activity: { name: 'Montero' } })
 });
 
 let numPlays = 0
