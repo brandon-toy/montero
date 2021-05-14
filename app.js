@@ -2,7 +2,6 @@ require('dotenv').config();
 
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const ytdl = require('ytdl-core-discord');
 let percent = 10
 let CheeseFlag = 1
 let CheeseUser = '320449161776594945'
