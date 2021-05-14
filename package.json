@@ -1,12 +1,10 @@
 {
   "dependencies": {
-    "@discordjs/opus": "github:discordjs/opus",
     "discord.js": "^12.5.3",
     "dotenv": "^9.0.2",
     "ffmpeg-static": "^4.3.0",
     "nodemon": "^2.0.7",
-    "prism-media": "^1.2.9",
-    "ytdl-core-discord": "^1.3.0"
+    "prism-media": "^1.2.9"
   },
   "name": "montero",
   "version": "1.0.0",
