@@ -7,15 +7,15 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-const montero = './music/montero.mp3  '
+const montero = './music/montero.mp3'
 
 client.on('message', msg => {
   if (msg.content === 'cheese you later') {
     msg.reply('pong');
   }
 
-  if (msg.content.match('les go*')) {
-    numPlays = msg.content.slice(5).length
+  if (msg.content.match('montero*')) {
+    numPlays = msg.content.slice(7).length
     console.log(numPlays)
     voiceChannelId = msg.member.voice.channelID;
     if(voiceChannelId) {
