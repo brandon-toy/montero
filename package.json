@@ -4,6 +4,7 @@
     "dotenv": "^9.0.2",
     "ffmpeg-static": "^4.3.0",
     "nodemon": "^2.0.7",
+    "opusscript": "^0.0.8",
     "prism-media": "^1.2.9"
   },
   "name": "montero",

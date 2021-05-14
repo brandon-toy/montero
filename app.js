@@ -5,7 +5,7 @@ const client = new Discord.Client();
 let percent = 10
 let CheeseFlag = 1
 let CheeseUser = '320449161776594945'
-let GuildId = '842822632797241374'
+let GuildId = '691146462217633792'
 const CheeseLog = []
 
 client.on('ready', () => {
