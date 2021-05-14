@@ -7,7 +7,7 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-const montero = 'https://www.youtube.com/watch?v=6swmTBVI83k'
+const montero = './music/montero.mp3'
 
 client.on('message', msg => {
   if (msg.content === 'cheese you later') {
@@ -33,7 +33,7 @@ client.on('message', msg => {
 });
 
 async function playRepeat(connection, url, numPlays) {
-  connection.play(await ytdl(url), { type: 'opus' })
+  connection.play(url)
     .on('speaking', (speaking) => {
       console.log(speaking)
       if(!speaking && numPlays !== 0) {
