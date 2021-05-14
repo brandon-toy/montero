@@ -5,10 +5,12 @@ const ytdl = require('ytdl-core-discord');
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
+  client.user.setPresence({ activity: { name: 'Montero' }, status: 'idle' })
 });
 
 let numPlays = 0
 const montero = './music/montero.mp3'
+
 
 client.on('message', msg => {
   if (msg.content === 'cheese you later') {
