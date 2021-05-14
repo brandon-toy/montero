@@ -6,6 +6,7 @@ const ytdl = require('ytdl-core-discord');
 let percent = 10
 let CheeseFlag = 1
 let CheeseUser = '320449161776594945'
+let GuildId = '842822632797241374'
 const CheeseLog = []
 
 client.on('ready', () => {
@@ -76,7 +77,7 @@ client.on('message', msg => {
     if(cheeseCommands[1] == 'set') {
       if(cheeseCommands[2] && msg.member.user.id == '691146462217633792') {
         CheeseUser = cheeseCommands[2]
-        const Guild = client.guilds.cache.get("842822632797241374"); // Getting the guild.
+        const Guild = client.guilds.cache.get(GuildId); // Getting the guild.
         const Member = Guild.members.cache.get(CheeseUser); // Getting the member.
         msg.reply('Set cheese user to: ' + Member.user.username)
       } else {
@@ -91,6 +92,12 @@ client.on('message', msg => {
       })  
       str = str.concat('```')
       msg.reply(str)
+    }
+    
+    if(cheeseCommands[1] == 'user') {
+      const Guild = client.guilds.cache.get(GuildId); // Getting the guild.
+      const Member = Guild.members.cache.get(CheeseUser); // Getting the member.
+      msg.reply('Current cheese user: '+ Member.user.username)
     }
   }
 
