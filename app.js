@@ -7,6 +7,7 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
+let numPlays = 0
 const montero = './music/montero.mp3'
 
 client.on('message', msg => {
@@ -15,24 +16,29 @@ client.on('message', msg => {
   }
 
   if (msg.content.match('montero*')) {
-    numPlays = msg.content.slice(7).length
-    console.log(numPlays)
-    voiceChannelId = msg.member.voice.channelID;
-    if(voiceChannelId) {
-      const channel = msg.member.voice.channel
-      channel.join().then(connection => {
-          playRepeat(connection, montero, numPlays)
-      }).catch(e => { 
-          console.error(e);
-      })
-      ;
+    if(numPlays > 0) {
+      numPlays += msg.content.slice(6).length
+      msg.reply('Increased number of plays to: ' +numPlays)
     } else {
-      msg.reply('You are not connected to a voice channel')
+      numPlays += msg.content.slice(6).length
+      voiceChannelId = msg.member.voice.channelID;
+      if(voiceChannelId) {
+        const channel = msg.member.voice.channel
+        channel.join().then(connection => {
+          playRepeat(connection, montero, numPlays)
+        }).catch(e => { 
+          console.error(e);
+        })
+        ;
+      } else {
+        msg.reply('You are not connected to a voice channel')
+      }
     }
   }
 });
 
 async function playRepeat(connection, url, numPlays) {
+
   connection.play(url)
     .on('speaking', (speaking) => {
       if(!speaking && numPlays !== 0) {
