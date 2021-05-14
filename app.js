@@ -35,8 +35,11 @@ client.on('message', msg => {
 async function playRepeat(connection, url, numPlays) {
   connection.play(await ytdl(url), { type: 'opus' })
     .on('speaking', (speaking) => {
+      console.log(speaking)
       if(!speaking && numPlays !== 0) {
+        console.log(speaking)
         playRepeat(connection, url, numPlays - 1)
+        console.log('repeat')
       }
     });
 }
