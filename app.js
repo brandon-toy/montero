@@ -78,7 +78,13 @@ client.on('message', msg => {
         CheeseUser = cheeseCommands[2]
         const Guild = client.guilds.cache.get(GuildId); // Getting the guild.
         const Member = Guild.members.cache.get(CheeseUser); // Getting the member.
-        msg.reply('Set cheese user to: ' + Member.user.username)
+        try {
+          msg.reply('Set cheese user to: ' + Member.user.username)
+        }
+        catch(err) {
+          console.log('uh oh')
+        }
+      
       } else {
         msg.reply('Lmao try next time')
       }
