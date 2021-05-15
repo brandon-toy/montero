@@ -107,7 +107,7 @@ client.on('message', msg => {
       CheeseLog.push(Math.floor(roll/4))
       console.log(roll)
     }
-    if(CheeseFlag && member.user.id == CheeseUser && speaking == 1 && rollk <= percent) {
+    if(CheeseFlag && member.user.id == CheeseUser && speaking == 1 && roll <= percent) {
       member.voice.kick()
       console.log('kicked!')
     }
