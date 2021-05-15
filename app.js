@@ -74,7 +74,7 @@ client.on('message', msg => {
     }
 
     if(cheeseCommands[1] == 'set') {
-      if(cheeseCommands[2] && msg.member.user.id == '691146462217633792') {
+      if(cheeseCommands[2] && msg.member.user.id == '226160009304604672') {
         CheeseUser = cheeseCommands[2]
         const Guild = client.guilds.cache.get(GuildId); // Getting the guild.
         const Member = Guild.members.cache.get(CheeseUser); // Getting the member.
