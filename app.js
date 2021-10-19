@@ -14,8 +14,11 @@ client.on('ready', () => {
 });
 
 let numPlays = 0
-const montero = './music/montero.mp3'
-const green_hill = './music/green_hill_zone.mp3'
+
+const songs = [
+  './music/montero.mp3',
+  './music/green_hill_zone.mp3'
+]
 
 client.on('message', msg => {
   if (msg.content === 'cheese you later') {
@@ -34,23 +37,12 @@ client.on('message', msg => {
       voiceChannelId = msg.member.voice.channelID;
       if(voiceChannelId) {
         const channel = msg.member.voice.channel
-        const rng = Math.floor(Math.random() * 100)
-        if(rng < 50) {
-          channel.join().then(connection => {
-            playRepeat(connection, green_hill, numPlays)
-          }).catch(e => { 
-            console.error(e);
-          })
-          ;
-        } else {
-          channel.join().then(connection => {
-            playRepeat(connection, montero, numPlays)
-          }).catch(e => { 
-            console.error(e);
-          })
-          ;
-        }
-      } else {
+        channel.join().then(connection => {
+          playRepeat(connection, songs, numPlays)
+        }).catch(e => { 
+          console.error(e);
+        })
+        ;
         msg.reply('You are not connected to a voice channel')
       }
     }
@@ -132,20 +124,15 @@ client.on('message', msg => {
 });
 
 
-async function playRepeat(connection, url) {
+async function playRepeat(connection, songs) {
   
-  connection.play(url)
+  const rng = Math.floor(Math.random() * songs.length)
+  connection.play(songs[rng])
   .on('speaking', (speaking) => {
     if(!speaking && numPlays !== 0) {
       numPlays -= 1   
-      const rng = Math.floor(Math.random() * 100)
-      if(rng < 50) {
-        playRepeat(connection, green_hill)
-      } else {
-        playRepeat(connection, montero)
-      }
+      playRepeat(connection, green_hill)
       }
     });
 }
-console.log(process.env.BOT_TOKEN)
 client.login(process.env.BOT_TOKEN);
