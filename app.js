@@ -10,7 +10,7 @@ const CheeseLog = []
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-  client.user.setPresence({ activity: { name: 'Montero' } })
+  client.user.setPresence({ activity: { name: '/help' } })
 });
 
 let numPlays = 0
