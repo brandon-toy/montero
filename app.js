@@ -43,6 +43,7 @@ client.on('message', msg => {
           console.error(e);
         })
         ;
+      } else {
         msg.reply('You are not connected to a voice channel')
       }
     }
@@ -131,7 +132,7 @@ async function playRepeat(connection, songs) {
   .on('speaking', (speaking) => {
     if(!speaking && numPlays !== 0) {
       numPlays -= 1   
-      playRepeat(connection, green_hill)
+      playRepeat(connection, songs)
       }
     });
 }
