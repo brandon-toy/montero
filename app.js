@@ -19,7 +19,8 @@ const songs = [
   './music/montero.mp3',
   './music/green_hill_zone.mp3',
   './music/running_in_the_90s.mp3',
-  './music/deja_vu.mp3'
+  './music/deja_vu.mp3',
+  './music/gas_gas_gas.mp3'
 ]
 
 client.on('message', msg => {
