@@ -140,9 +140,9 @@ async function playRepeat(connection, url) {
       numPlays -= 1   
       const rng = Math.floor(Math.random() * 100)
       if(rng < 50) {
-        playRepeat(connection, url)
+        playRepeat(connection, green_hill)
       } else {
-        playRepeat(connection, url)
+        playRepeat(connection, montero)
       }
       }
     });
